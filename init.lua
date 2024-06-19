@@ -156,6 +156,8 @@ require('lazy').setup({
     'tpope/vim-fugitive',
     config = function()
       vim.keymap.set('n', '<leader>GG', ':Git<CR>', { desc = 'Show [G]it-fugitive dialog' })
+      vim.keymap.set('n', '<leader>Gd', ':Git diff<CR>', { desc = 'Show git [d]iff' })
+      vim.keymap.set('n', '<leader>Gl', ':Git log<CR>', { desc = 'Show git [l]og' })
     end,
   },
 
