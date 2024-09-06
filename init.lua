@@ -510,6 +510,7 @@ require('lazy').setup({
 
   { -- Autoformat
     'stevearc/conform.nvim',
+    version = '7.1.0', -- next version requires nvim 0.10+
     lazy = false,
     keys = {
       {
