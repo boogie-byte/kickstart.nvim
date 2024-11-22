@@ -175,18 +175,16 @@ require('lazy').setup({
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VeryLazy'
-    opts = {
-      spec = {
-        { '<leader>G', group = '[G]it' },
-        { '<leader>c', group = '[C]ode' },
-        { '<leader>d', group = '[D]ocument' },
-        { '<leader>f', group = '[File]' },
-        { '<leader>h', group = 'Git [H]unk' },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>s', group = '[S]earch' },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
-      },
+    keys = {
+      { '<leader>G', group = '[G]it' },
+      { '<leader>c', group = '[C]ode' },
+      { '<leader>d', group = '[D]ocument' },
+      { '<leader>f', group = '[File]' },
+      { '<leader>h', group = 'Git [H]unk' },
+      { '<leader>r', group = '[R]ename' },
+      { '<leader>s', group = '[S]earch' },
+      { '<leader>w', group = '[W]orkspace' },
+      { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
     },
   },
 
