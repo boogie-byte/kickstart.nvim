@@ -647,13 +647,19 @@ require('lazy').setup({
 
   -- Set colorscheme
   {
-    'sainnhe/gruvbox-material',
+    'navarasu/onedark.nvim',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       vim.opt.termguicolors = true
-      vim.cmd.colorscheme 'gruvbox-material'
+      vim.cmd.colorscheme 'onedark'
     end,
+  },
+
+  -- Detect OS dark mode automatically
+  {
+    'f-person/auto-dark-mode.nvim',
+    config = true,
   },
 
   -- Highlight todo, notes, etc in comments
@@ -664,7 +670,7 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
-      theme = 'gruvbox-material',
+      theme = 'onedark',
     },
   },
 
