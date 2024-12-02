@@ -1,4 +1,13 @@
 return {
+  -- This plugin adds indentation guides to Neovim.
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
+
   -- A collection of small QoL plugins for Neovim.
   {
     'folke/snacks.nvim',
