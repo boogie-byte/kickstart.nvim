@@ -1,4 +1,12 @@
 return {
+  -- Dead simple plugin to center the currently focused buffer to the middle of the screen.
+  {
+    'shortcuts/no-neck-pain.nvim',
+    config = function()
+      vim.keymap.set('', '<leader>C', require('no-neck-pain').toggle, { desc = '[C]entered window mode' })
+    end,
+  },
+
   -- This plugin adds indentation guides to Neovim.
   {
     'lukas-reineke/indent-blankline.nvim',
