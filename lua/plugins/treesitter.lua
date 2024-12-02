@@ -8,6 +8,12 @@ return {
       require('nvim-treesitter.configs').setup {
         ensure_installed = { 'regex' },
         auto_install = true,
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
       }
     end,
   },
