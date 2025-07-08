@@ -24,14 +24,6 @@ return {
     opts = {},
   },
 
-  -- Detect OS dark mode automatically
-  {
-    'f-person/auto-dark-mode.nvim',
-    lazy = false,
-    priority = 1100, -- Make sure to load this before all the other start plugins.
-    opts = {},
-  },
-
   -- Set colorscheme
   {
     'navarasu/onedark.nvim',

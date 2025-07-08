@@ -1,13 +1,7 @@
 return {
-  -- nvim-cmp source for neovim's built-in language server client.
-  'hrsh7th/cmp-nvim-lsp',
-
   -- A completion engine plugin for neovim written in Lua.
   {
     'hrsh7th/nvim-cmp',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-    },
     config = function()
       local cmp = require 'cmp'
       cmp.setup {
@@ -31,6 +25,19 @@ return {
           documentation = cmp.config.window.bordered(),
         },
       }
+    end,
+  },
+
+  -- nvim-cmp source for neovim's built-in language server client.
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    dependencies = {
+      'hrsh7th/nvim-cmp',
+    },
+    config = function()
+      vim.lsp.config('*', {
+        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      })
     end,
   },
 
@@ -59,43 +66,11 @@ return {
 
   -- mason-lspconfig bridges mason.nvim with the lspconfig plugin.
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
+    opts = {},
     dependencies = {
-      'williamboman/mason.nvim',
+      { 'mason-org/mason.nvim', opts = {} },
       'neovim/nvim-lspconfig',
-    },
-    opts = {
-      ensure_installed = {
-        'gopls',
-        'lua_ls',
-      },
-      handlers = {
-        function(server_name)
-          local lspconfig = require 'lspconfig'
-          lspconfig[server_name].setup {
-            on_attach = function(_, buffer)
-              local map = function(keys, func, desc)
-                local opts = {
-                  buffer = buffer,
-                  desc = desc,
-                }
-                vim.keymap.set('n', keys, func, opts)
-              end
-
-              map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
-              map('gd', vim.lsp.buf.definition, '[g]oto [d]efinition')
-              map('gD', vim.lsp.buf.declaration, '[g]oto [D]eclaration')
-              map('gr', vim.lsp.buf.references, '[g]oto [r]eferences')
-              map('gy', vim.lsp.buf.type_definition, '[g]oto t[y]pe definition')
-
-              map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-              map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-            end,
-            capabilities = require('cmp_nvim_lsp').default_capabilities(),
-          }
-        end,
-      },
     },
   },
 }
