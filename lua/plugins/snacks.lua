@@ -9,6 +9,11 @@ return {
       indent = { enabled = true },
       explorer = { enabled = true },
       picker = { enabled = true },
+      terminal = {
+        win = {
+          position = 'float',
+        },
+      },
       toggle = { enabled = true },
       zen = { enabled = true },
     },
@@ -48,6 +53,11 @@ return {
       { '<leader>gS', function() Snacks.picker.git_stash() end, desc = 'Git Stash' },
       { '<leader>gd', function() Snacks.picker.git_diff() end, desc = 'Git Diff (Hunks)' },
       { '<leader>gf', function() Snacks.picker.git_log_file() end, desc = 'Git Log File' },
+
+      { '<c-/>', function() Snacks.terminal() end, desc = 'Show Terminal' },
+      { '<c-_>', function() Snacks.terminal() end, desc = 'which_key_ignore' },
+      { '<c-/>', '<cmd>close<cr>', desc = 'Hide Terminal', mode = {'t'} },
+      { '<c-_>', '<cmd>close<cr>', desc = 'which_key_ignore', mode = {'t'} },
 
       { '<leader>z', function() Snacks.zen() end, desc = 'Toggle Zen Mode' },
       { '<leader>Z', function() Snacks.zen.zoom() end, desc = 'Toggle Zoom' },
