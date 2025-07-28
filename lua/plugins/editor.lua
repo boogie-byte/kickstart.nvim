@@ -85,7 +85,7 @@ return {
         map('n', '<leader>hp', gitsigns.preview_hunk, '[h]unk [p]review')
 
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, '[t]oggle current line [b]lame')
-        map('n', '<leader>td', gitsigns.toggle_deleted, '[t]oggle [d]eleted')
+        map('n', '<leader>tD', gitsigns.toggle_deleted, '[t]oggle [d]eleted')
 
         map('n', '<leader>bs', gitsigns.stage_buffer, '[b]uffer [s]tage')
         map('n', '<leader>br', gitsigns.reset_buffer, '[b]uffer [r]eset')
