@@ -58,10 +58,10 @@ return {
       vim.keymap.set('n', '<C-\\>', splits.move_cursor_previous)
 
       -- swapping buffers between windows
-      vim.keymap.set('n', '<leader><leader>h', splits.swap_buf_left, { desc = 'Swap windows left' })
-      vim.keymap.set('n', '<leader><leader>j', splits.swap_buf_down, { desc = 'Swap windows down' })
-      vim.keymap.set('n', '<leader><leader>k', splits.swap_buf_up, { desc = 'Swap windows up' })
-      vim.keymap.set('n', '<leader><leader>l', splits.swap_buf_right, { desc = 'Swap windows left' })
+      vim.keymap.set('n', '<leader>wh', splits.swap_buf_left, { desc = 'Swap windows left' })
+      vim.keymap.set('n', '<leader>wj', splits.swap_buf_down, { desc = 'Swap windows down' })
+      vim.keymap.set('n', '<leader>wk', splits.swap_buf_up, { desc = 'Swap windows up' })
+      vim.keymap.set('n', '<leader>wl', splits.swap_buf_right, { desc = 'Swap windows left' })
     end,
   },
 

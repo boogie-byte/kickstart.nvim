@@ -35,7 +35,7 @@ return {
         { '<leader>r', group = '[r]ename' },
         { '<leader>s', group = '[s]earch' },
         { '<leader>t', group = '[t]oggle' },
-        { '<leader>w', group = '[w]orkspace' },
+        { '<leader>w', group = '[w]indow' },
       },
     },
   },
