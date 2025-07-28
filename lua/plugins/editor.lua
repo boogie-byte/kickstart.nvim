@@ -92,10 +92,6 @@ return {
         map('n', '<leader>hb', function()
           gitsigns.blame_line { full = true }
         end)
-        map('n', '<leader>gd', gitsigns.diffthis, 'show [g]it [d]iff')
-        map('n', '<leader>gD', function()
-          gitsigns.diffthis '@'
-        end, 'show [g]it [D]iff against HEAD')
       end,
     },
   },

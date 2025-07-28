@@ -12,7 +12,7 @@ return {
     },
     -- stylua: ignore
     keys = {
-      { '<leader>e', function() Snacks.explorer() end, desc = 'File Explorer' },
+      { '<leader>E', function() Snacks.explorer() end, desc = 'File Explorer' },
 
       { '<leader><space>', function() Snacks.picker.smart() end, desc = 'Smart Find Files' },
 
