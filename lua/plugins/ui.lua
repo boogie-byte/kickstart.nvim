@@ -26,12 +26,11 @@ return {
 
   -- Set colorscheme
   {
-    'navarasu/onedark.nvim',
-    lazy = false,
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
     config = function()
-      vim.opt.termguicolors = true
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd.colorscheme 'catppuccin-latte'
     end,
   },
 
@@ -41,13 +40,11 @@ return {
     dependencies = {
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
-    config = function()
-      -- Don't show the mode, since it's already in the status line
-      vim.opt.showmode = false
-      require('lualine').setup {
-        theme = 'onedark',
-      }
-    end,
+    opts = {
+      options = {
+        theme = 'catppuccin-latte',
+      },
+    },
   },
 
   -- Better UI for messages, cmdline and the popupmenu
