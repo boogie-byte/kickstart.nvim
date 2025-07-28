@@ -5,9 +5,6 @@ return {
   -- Automatically highlight other uses of the word under the cursor
   'RRethy/vim-illuminate',
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
   -- Highlight todo, notes, etc in comments
   {
     'folke/todo-comments.nvim',
