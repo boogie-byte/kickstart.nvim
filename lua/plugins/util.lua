@@ -1,4 +1,7 @@
 return {
+  -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth',
+
   -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
   { 'mason-org/mason.nvim', opts = {} },
 

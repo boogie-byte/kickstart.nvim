@@ -38,6 +38,36 @@ return {
     end,
   },
 
+  -- Highlight todo, notes, etc in comments
+  {
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    opts = {
+      signs = false,
+    },
+  },
+
+  -- Useful plugin to show you pending keybinds.
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    opts = {
+      spec = {
+        { '<leader>b', group = '[b]uffer' },
+        { '<leader>d', group = '[d]ebug' },
+        { '<leader>f', group = '[f]ind' },
+        { '<leader>g', group = '[g]it' },
+        { '<leader>h', group = '[h]unk' },
+        { '<leader>s', group = '[s]how' },
+        { '<leader>t', group = '[t]oggle' },
+        { '<leader>w', group = '[w]indow' },
+      },
+    },
+  },
+
   -- Better UI for messages, cmdline and the popupmenu
   {
     'folke/noice.nvim',

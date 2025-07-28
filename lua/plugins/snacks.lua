@@ -31,10 +31,6 @@ return {
       { '<leader>fG', function() Snacks.picker.grep_buffers() end, desc = 'Grep Open Buffers' },
       { '<leader>fw', function() Snacks.picker.grep_word() end, desc = 'Visual selection or word', mode = { 'n', 'x' } },
 
-      { '<leader>fc', function() Snacks.picker.command_history() end, desc = 'Command History' },
-      { '<leader>fC', function() Snacks.picker.commands() end, desc = 'Commands' },
-      { '<leader>fk', function() Snacks.picker.keymaps() end, desc = 'Keymaps' },
-
       { '<leader>fd', function() Snacks.picker.lsp_definitions() end, desc = 'Goto Definition' },
       { '<leader>fD', function() Snacks.picker.lsp_declarations() end, desc = 'Goto Declaration' },
       { '<leader>fr', function() Snacks.picker.lsp_references() end, nowait = true, desc = 'References' },
@@ -43,8 +39,11 @@ return {
       { '<leader>fs', function() Snacks.picker.lsp_symbols() end, desc = 'LSP Symbols' },
       { '<leader>fS', function() Snacks.picker.lsp_workspace_symbols() end, desc = 'LSP Workspace Symbols' },
 
-      -- { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = 'Diagnostics' },
-      -- { '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics' },
+      { '<leader>sc', function() Snacks.picker.command_history() end, desc = 'Command History' },
+      { '<leader>sC', function() Snacks.picker.commands() end, desc = 'Commands' },
+      { '<leader>sk', function() Snacks.picker.keymaps() end, desc = 'Keymaps' },
+      { '<leader>sd', function() Snacks.picker.diagnostics() end, desc = 'Diagnostics' },
+      { '<leader>sD', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics' },
 
       { '<leader>gb', function() Snacks.picker.git_branches() end, desc = 'Git Branches' },
       { '<leader>gl', function() Snacks.picker.git_log() end, desc = 'Git Log' },
