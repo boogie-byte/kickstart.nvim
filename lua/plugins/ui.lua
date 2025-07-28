@@ -38,19 +38,6 @@ return {
     end,
   },
 
-  -- Pretty statusline
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = {
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
-    },
-    opts = {
-      options = {
-        theme = 'catppuccin-latte',
-      },
-    },
-  },
-
   -- Better UI for messages, cmdline and the popupmenu
   {
     'folke/noice.nvim',
