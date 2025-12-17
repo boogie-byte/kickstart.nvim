@@ -2,6 +2,10 @@ return {
   -- A completion engine plugin for neovim written in Lua.
   {
     'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'windwp/nvim-autopairs',
+    },
     config = function()
       local cmp = require 'cmp'
       cmp.setup {
@@ -19,49 +23,28 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
+          { name = 'lazydev', group_index = 0 },
         },
         window = {
           completion = cmp.config.window.bordered(),
           documentation = cmp.config.window.bordered(),
         },
       }
+
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
     end,
   },
 
   -- nvim-cmp source for neovim's built-in language server client.
   {
     'hrsh7th/cmp-nvim-lsp',
-    dependencies = {
-      'hrsh7th/nvim-cmp',
-    },
     config = function()
-      vim.lsp.config('*', {
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      })
+      local capabilities = require('cmp_nvim_lsp').default_capabilities(),
+      vim.lsp.config('*', { capabilities = capabilities })
     end,
-  },
-
-  -- default Nvim LSP client configurations for various LSP servers.
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-    },
-  },
-
-  -- mason-lspconfig bridges mason.nvim with the lspconfig plugin.
-  {
-    'mason-org/mason-lspconfig.nvim',
-    dependencies = {
-      { 'mason-org/mason.nvim', opts = {} },
-      'neovim/nvim-lspconfig',
-    },
-    opts = {
-      ensure_installed = {
-        'lua_ls',
-        'gopls',
-        'basedpyright',
-      },
-    },
   },
 }

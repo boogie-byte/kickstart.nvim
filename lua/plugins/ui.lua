@@ -38,30 +38,19 @@ return {
     end,
   },
 
-  -- Highlight todo, notes, etc in comments
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    opts = {
-      signs = false,
-    },
-  },
-
   -- Useful plugin to show you pending keybinds.
   {
     'folke/which-key.nvim',
     event = 'VeryLazy',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
     opts = {
       spec = {
         { '<leader>b', group = '[b]uffer' },
-        { '<leader>d', group = '[d]ebug' },
         { '<leader>f', group = '[f]ind' },
         { '<leader>g', group = '[g]it' },
-        { '<leader>h', group = '[h]unk' },
-        { '<leader>s', group = '[s]how' },
+        { '<leader>gh', group = '[g]it [h]unk' },
         { '<leader>t', group = '[t]oggle' },
         { '<leader>w', group = '[w]indow' },
       },
@@ -86,9 +75,55 @@ return {
     },
     dependencies = {
       'MunifTanjim/nui.nvim',
-      'folke/snacks.nvim', -- for notifications to work
+      'rcarriga/nvim-notify',
+      'nvim-treesitter/nvim-treesitter',
       'hrsh7th/nvim-cmp',
     },
     build = ':TSInstall vim regex lua bash markdown markdown_inline',
+  },
+
+  -- telescope.nvim is a highly extendable fuzzy finder over lists.
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = 'v0.2.0',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      local builtin = require 'telescope.builtin'
+
+      vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[f]ind [b]uffers' })
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[f]ind [f]iles' })
+      vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[f]ind with [g]rep' })
+      vim.keymap.set('n', '<leader>fD', builtin.diagnostics, { desc = '[f]ind [D]iagnostic' })
+      vim.keymap.set('n', '<leader>fd', builtin.lsp_definitions, { desc = '[f]ind [d]efinition' })
+      vim.keymap.set('n', '<leader>fi', builtin.lsp_implementations, { desc = '[f]ind [i]mplementation' })
+      vim.keymap.set('n', '<leader>fr', builtin.lsp_references, { desc = '[f]ind [r]eferences' })
+      vim.keymap.set('n', '<leader>ft', builtin.lsp_type_definitions, { desc = '[f]ind [t]ype definition' })
+    end,
+  },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    opts = {},
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
+
+  -- Deep buffer integration for Git
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      local gitsigns = require 'gitsigns'
+      gitsigns.setup()
+
+      vim.keymap.set('n', '<leader>ts', gitsigns.toggle_signs, { desc = '[t]oggle git [s]igns' })
+      vim.keymap.set('n', '<leader>tW', gitsigns.toggle_word_diff, { desc = '[t]oggle git [W]ord diff' })
+      vim.keymap.set('n', '<leader>gb', gitsigns.blame_line, { desc = '[g]it [b]lame current line' })
+      vim.keymap.set('n', '<leader>ghp', gitsigns.preview_hunk, { desc = '[g]it [h]unk [p]review' })
+      vim.keymap.set('n', '<leader>ghr', gitsigns.reset_hunk, { desc = '[g]it [h]unk [r]eset' })
+    end,
   },
 }
