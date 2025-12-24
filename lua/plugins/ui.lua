@@ -52,6 +52,7 @@ return {
         { '<leader>g', group = '[g]it' },
         { '<leader>gh', group = '[g]it [h]unk' },
         { '<leader>t', group = '[t]oggle' },
+        { '<leader>T', group = '[T]esting' },
         { '<leader>w', group = '[w]indow' },
       },
     },
@@ -124,6 +125,21 @@ return {
       vim.keymap.set('n', '<leader>gb', gitsigns.blame_line, { desc = '[g]it [b]lame current line' })
       vim.keymap.set('n', '<leader>ghp', gitsigns.preview_hunk, { desc = '[g]it [h]unk [p]review' })
       vim.keymap.set('n', '<leader>ghr', gitsigns.reset_hunk, { desc = '[g]it [h]unk [r]eset' })
+    end,
+  },
+
+  -- Displays coverage information in the sign column.
+  {
+    'andythigpen/nvim-coverage',
+    version = '*',
+    config = function()
+      local coverage = require 'coverage'
+
+      coverage.setup {
+        auto_reload = true,
+      }
+
+      vim.keymap.set('n', '<leader>tc', coverage.toggle, { desc = '[t]oggle test [c]overage' })
     end,
   },
 }

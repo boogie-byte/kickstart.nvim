@@ -2,25 +2,13 @@ return {
   -- Highlight, edit, and navigate code
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main', -- 'master' is archived
+    lazy = false,
     build = ':TSUpdate',
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'regex' },
-        auto_install = true,
-        highlight = {
-          enable = true,
-        },
-        indent = {
-          enable = true,
-        },
-      }
-    end,
   },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
 
   -- Neovim plugin for automatically highlighting other uses of the word under
   -- the cursor using either LSP, Tree-sitter, or regex matching.
@@ -31,8 +19,8 @@ return {
 
   -- This plugin adds indentation guides to Neovim.
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
@@ -41,10 +29,10 @@ return {
   -- todo-comments is a lua plugin for Neovim >= 0.8.0 to highlight and search
   -- for todo comments like TODO, HACK, BUG in your code base.
   {
-    "folke/todo-comments.nvim",
+    'folke/todo-comments.nvim',
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
     },
     opts = {},
     keys = {
@@ -55,7 +43,7 @@ return {
   -- A super powerful autopair plugin for Neovim that supports multiple characters.
   {
     'windwp/nvim-autopairs',
-    event = "InsertEnter",
+    event = 'InsertEnter',
     opts = {},
   },
 
@@ -67,12 +55,12 @@ return {
       'nvim-treesitter/nvim-treesitter',
     },
     config = function()
-      local treesj = require('treesj')
-      treesj.setup({
+      local treesj = require 'treesj'
+      treesj.setup {
         use_default_keymaps = false,
-      })
+      }
 
-      vim.keymap.set("n", "gS", treesj.toggle, { desc = "toggle block split" })
+      vim.keymap.set('n', 'gS', treesj.toggle, { desc = 'toggle block split' })
     end,
   },
 }

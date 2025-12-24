@@ -28,6 +28,12 @@ return {
       'mfussenegger/nvim-dap',
       'nvim-treesitter/nvim-treesitter',
     },
-    opts={},
+    opts = {},
+  },
+
+  -- An extension for nvim-dap providing configurations for launching go debugger (delve) and debugging individual tests.
+  {
+    'leoluz/nvim-dap-go',
+    opts = {},
   },
 }
