@@ -89,5 +89,6 @@ return {
       'folke/snacks.nvim', -- for notifications to work
       'hrsh7th/nvim-cmp',
     },
+    build = ':TSInstall vim regex lua bash markdown markdown_inline',
   },
 }
