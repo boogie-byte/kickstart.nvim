@@ -77,7 +77,7 @@ vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.diagnostic.config { jump = { float = true }, virtual_text = true }
+vim.diagnostic.config { jump = { on_jump = vim.diagnostic.open_float }, virtual_text = true }
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 
 -- [[ Basic Autocommands ]]
