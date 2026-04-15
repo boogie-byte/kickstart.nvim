@@ -17,6 +17,9 @@ vim.opt.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
+-- Enable line breaks on word boundaries.
+vim.opt.linebreak = true
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
